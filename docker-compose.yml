@@ -1,0 +1,49 @@
+version: '3'
+services:
+  auditor:
+    container_name: auditor
+    build:
+      context: .
+      dockerfile: ./docker/image-auditor/Dockerfile
+    ports:
+      - '2205:2205'
+  musician-piano:
+    container_name: musician-piano
+    build:
+      context: .
+      dockerfile: ./docker/image-musician/Dockerfile
+    depends_on:
+      - auditor
+    command: piano
+  musician-trumpet:
+    container_name: musician-trumpet
+    build:
+      context: .
+      dockerfile: ./docker/image-musician/Dockerfile
+    depends_on:
+      - auditor
+    command: trumpet
+  musician-flute:
+    container_name: musician-flute
+    build:
+      context: .
+      dockerfile: ./docker/image-musician/Dockerfile
+    depends_on:
+      - auditor
+    command: flute
+  musician-violin:
+    container_name: musician-violin
+    build:
+      context: .
+      dockerfile: ./docker/image-musician/Dockerfile
+    depends_on:
+      - auditor
+    command: violin
+  musician-drum:
+    container_name: musician-drum
+    build:
+      context: .
+      dockerfile: ./docker/image-musician/Dockerfile
+    depends_on:
+      - auditor
+    command: drum
