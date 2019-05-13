@@ -2,7 +2,7 @@
 const dgram = require('dgram');
 
 const uuidv1 = require('uuid/v1');
-t
+
 const protocol = require('./protocol');
 
 

@@ -18,8 +18,7 @@ function Musicians() {
   };
 
   Musicians.prototype.update = () => {
-    this.list = this.list.filter(musician => moment(Date.now()).diff(musician.activeSince, 'second') <= 5)
-    //console.log(this.list);
+    this.list = this.list.filter(musician => moment(Date.now()).diff(musician.activeSince, 'second') <= 5);
   };
 }
 
@@ -46,7 +45,7 @@ socket.on('message', (msg, source) => {
 });
 
 const server = net.createServer();
-server.listen(protocol.PROTOCOL_PORT, protocol.PROTOCOL_TCP_ADDRESS, () => {
+server.listen(protocol.PROTOCOL_PORT, () => {
   console.log(`TCP Server is running on port ${protocol.PROTOCOL_PORT}.`);
 });
 server.on('connection', (sock) => {
